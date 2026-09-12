@@ -71,8 +71,8 @@ export default function AboutPage() {
             const Icon = item.icon;
             return (
               <div key={item.title} className="relative">
-                <div className="absolute -left-[31px] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-cyan-electric/40 bg-obsidian-void text-cyan-electric">
-                  <Icon className="h-3 w-3" />
+                <div className="absolute -left-9 top-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-cyan-electric/40 bg-obsidian-void text-cyan-electric">
+                  <Icon className="h-3 w-3 shrink-0" />
                 </div>
                 <div className="panel px-5 py-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">

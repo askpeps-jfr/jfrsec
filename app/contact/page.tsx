@@ -12,20 +12,20 @@ const channels = [
   {
     icon: Mail,
     label: "Email",
-    value: "contact@jfrsec.com",
-    href: "mailto:contact@jfrsec.com",
+    value: "jfromero@jfrsec.com",
+    href: "mailto:jfromero@jfrsec.com",
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "github.com/jfrsec",
-    href: "https://github.com/",
+    value: "github.com/askpeps-jfr",
+    href: "https://github.com/askpeps-jfr",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/jfrsec",
-    href: "https://linkedin.com/",
+    href: "https://www.linkedin.com/in/jfrsec",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function ContactPage() {
                     <a
                       href={channel.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="group flex items-center gap-3 rounded-md border border-slate-border bg-white/[0.02] px-3.5 py-2.5 text-sm transition-colors hover:border-cyan-electric/40"
                     >
                       <Icon className="h-4 w-4 text-cyan-electric" />

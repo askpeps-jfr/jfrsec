@@ -9,10 +9,14 @@
 
   html {
     scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-obsidian-void text-slate-100 antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -47,11 +51,12 @@
   }
 
   .panel {
-    @apply relative rounded-lg border border-slate-border bg-slate-surface/60 backdrop-blur-sm;
+    @apply relative w-full max-w-full rounded-lg border border-slate-border bg-slate-surface/60 backdrop-blur-sm;
+    box-sizing: border-box;
   }
 
   .badge-pill {
-    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider;
+    @apply inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider;
   }
 }
 

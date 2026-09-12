@@ -104,13 +104,16 @@ export default function SandboxModal({
       className="max-w-3xl"
     >
       <div className="flex items-center justify-between gap-4 border-b border-slate-border px-5 py-4">
-        <div className="flex items-center gap-2.5">
-          <Terminal className="h-4 w-4 text-cyan-electric" />
-          <div>
+        <div className="flex min-w-0 items-center gap-2.5">
+          <Terminal className="h-4 w-4 shrink-0 text-cyan-electric" />
+          <div className="min-w-0">
             <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-electric">
               Simulated Environment
             </p>
-            <h2 id="sandbox-modal-title" className="font-mono text-sm font-semibold text-slate-100">
+            <h2
+              id="sandbox-modal-title"
+              className="truncate font-mono text-sm font-semibold text-slate-100"
+            >
               {context.title}
             </h2>
           </div>

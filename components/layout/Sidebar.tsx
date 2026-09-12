@@ -96,18 +96,18 @@ export default function Sidebar() {
         </div>
         <div className="flex items-center gap-3">
           <a
-            href="https://github.com/"
+            href="https://github.com/askpeps-jfr"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="text-slate-500 transition-colors hover:text-cyan-electric"
             aria-label="GitHub"
           >
             <Github className="h-4 w-4" />
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/jfrsec"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="text-slate-500 transition-colors hover:text-cyan-electric"
             aria-label="LinkedIn"
           >

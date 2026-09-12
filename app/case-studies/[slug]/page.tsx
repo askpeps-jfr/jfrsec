@@ -60,7 +60,7 @@ export default function CaseStudyDetailPage({
     : undefined;
 
   return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-10">
+    <div className="mx-auto flex w-full max-w-4xl flex-col gap-10 overflow-x-hidden">
       <Link
         href="/case-studies"
         className="inline-flex w-fit items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-slate-500 hover:text-cyan-electric"
@@ -79,7 +79,7 @@ export default function CaseStudyDetailPage({
             CVSS {study.cvss.toFixed(1)} · {severityLabel[study.severity]}
           </span>
         </div>
-        <h1 className="font-mono text-3xl font-bold text-slate-50 sm:text-4xl">
+        <h1 className="break-words font-mono text-3xl font-bold text-slate-50 sm:text-4xl">
           {study.title}
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 sm:text-base">
@@ -97,7 +97,7 @@ export default function CaseStudyDetailPage({
           </span>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-4 flex max-w-full flex-wrap gap-1.5">
           {study.tags.map((tag) => (
             <span
               key={tag}
@@ -108,7 +108,7 @@ export default function CaseStudyDetailPage({
           ))}
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-6 flex max-w-full flex-wrap gap-3">
           <SandboxLaunchButton
             context={{
               title: study.title,
@@ -120,10 +120,10 @@ export default function CaseStudyDetailPage({
             href={study.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-slate-border bg-white/[0.02] px-4 py-2 font-mono text-xs uppercase tracking-widest text-slate-300 transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual"
+            className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md border border-slate-border bg-white/[0.02] px-4 py-2 font-mono text-xs uppercase tracking-widest text-slate-300 transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual"
           >
             [ VIEW REPO
-            <ExternalLink className="h-3.5 w-3.5" />]
+            <ExternalLink className="h-3.5 w-3.5 shrink-0" />]
           </a>
         </div>
       </header>
@@ -180,26 +180,26 @@ export default function CaseStudyDetailPage({
         </ol>
       </section>
 
-      <section>
+      <section className="w-full max-w-full">
         <SectionTitle icon={Terminal} label="Command Log" />
-        <div className="mt-3 overflow-hidden rounded-lg border border-slate-border bg-obsidian-void">
+        <div className="mt-3 w-full max-w-full overflow-hidden rounded-lg border border-slate-border bg-obsidian-void">
           <div className="flex items-center gap-1.5 border-b border-slate-border bg-slate-surface px-4 py-2.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-magenta-hot/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-500/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-jade/70" />
-            <span className="ml-2 font-mono text-[11px] text-slate-500">
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-magenta-hot/70" />
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-amber-500/70" />
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-jade/70" />
+            <span className="ml-2 truncate font-mono text-[11px] text-slate-500">
               session_log.sh
             </span>
           </div>
-          <div className="space-y-5 px-5 py-4 font-mono text-[13px] leading-relaxed">
+          <div className="space-y-5 overflow-x-auto px-5 py-4 font-mono text-[13px] leading-relaxed">
             {study.commandLog.map((entry, i) => (
-              <div key={i}>
-                <p className="text-slate-600"># {entry.comment}</p>
-                <p className="text-cyan-electric">
+              <div key={i} className="min-w-0">
+                <p className="break-words text-slate-600"># {entry.comment}</p>
+                <p className="break-words text-cyan-electric">
                   <span className="text-magenta-hot">$</span> {entry.command}
                 </p>
                 {entry.output && (
-                  <pre className="mt-1.5 whitespace-pre-wrap rounded border border-slate-border bg-slate-surface/60 px-3 py-2 text-[12px] text-slate-500">
+                  <pre className="mt-1.5 whitespace-pre-wrap break-words rounded border border-slate-border bg-slate-surface/60 px-3 py-2 text-[12px] text-slate-500">
                     {entry.output}
                   </pre>
                 )}

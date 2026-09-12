@@ -46,15 +46,15 @@ export default function CredentialCarouselModal({
       className="max-w-3xl"
     >
       <div className="flex items-center justify-between gap-4 border-b border-slate-border px-5 py-4">
-        <div className="flex items-center gap-2.5">
-          <GraduationCap className="h-4 w-4 text-cyan-electric" />
-          <div>
+        <div className="flex min-w-0 items-center gap-2.5">
+          <GraduationCap className="h-4 w-4 shrink-0 text-cyan-electric" />
+          <div className="min-w-0">
             <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-electric">
               Verified Course Certificate
             </p>
             <h2
               id="credential-carousel-title"
-              className="font-mono text-sm font-semibold text-slate-100"
+              className="truncate font-mono text-sm font-semibold text-slate-100"
             >
               {programTitle}
             </h2>
@@ -103,18 +103,20 @@ export default function CredentialCarouselModal({
           <button
             type="button"
             onClick={() => setIndex((i) => (i - 1 + total) % total)}
-            className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-slate-400 transition-colors hover:text-cyan-electric"
+            className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-widest text-slate-400 transition-colors hover:text-cyan-electric"
           >
-            <ChevronLeft className="h-3.5 w-3.5" />[ PREV ]
+            <ChevronLeft className="h-3.5 w-3.5 shrink-0" />[ PREV ]
           </button>
-          <p className="text-center font-mono text-sm text-slate-200">{current.title}</p>
+          <p className="min-w-0 truncate text-center font-mono text-sm text-slate-200">
+            {current.title}
+          </p>
           <button
             type="button"
             onClick={() => setIndex((i) => (i + 1) % total)}
-            className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-slate-400 transition-colors hover:text-cyan-electric"
+            className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-widest text-slate-400 transition-colors hover:text-cyan-electric"
           >
             [ NEXT ]
-            <ChevronRight className="h-3.5 w-3.5" />
+            <ChevronRight className="h-3.5 w-3.5 shrink-0" />
           </button>
         </div>
 
