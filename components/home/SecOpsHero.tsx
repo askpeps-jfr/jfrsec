@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, ShieldCheck, Terminal } from "lucide-react";
+import { ArrowUpRight, Download, Mail, Terminal } from "lucide-react";
 import PageHeaderBadge from "@/components/shared/PageHeaderBadge";
 
 export default function SecOpsHero() {
@@ -66,21 +66,30 @@ export default function SecOpsHero() {
             labs, audits, and investigations behind that work.
           </p>
 
-          <div className="mt-5 flex w-full flex-col gap-3 sm:mt-6 sm:w-auto sm:flex-row sm:gap-4">
+          <div className="flex flex-wrap items-center gap-3 pt-4">
             <Link
               href="/case-studies"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-md border border-cyan-electric/40 bg-cyan-electric/10 px-5 py-2.5 font-mono text-sm text-cyan-electric shadow-glow-cyan transition-all hover:scale-[1.02] hover:border-magenta-hot/40 hover:shadow-glow-dual sm:w-auto sm:justify-start"
+              className="group inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-cyan-electric/40 bg-cyan-electric/10 px-4 py-2.5 font-mono text-xs text-cyan-electric shadow-glow-cyan transition-all hover:scale-[1.02] hover:border-magenta-hot/40 hover:shadow-glow-dual"
             >
               View Case Studies
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-slate-border bg-white/[0.02] px-5 py-2.5 font-mono text-sm text-slate-300 transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual sm:w-auto sm:justify-start"
+              className="inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-slate-border bg-white/[0.02] px-4 py-2.5 font-mono text-xs text-slate-300 transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual"
             >
-              <ShieldCheck className="h-4 w-4" />
+              <Mail className="h-4 w-4 shrink-0" />
               Establish Contact
             </Link>
+            <a
+              href="/docs/jose-romero-cybersecurity-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Jose_Romero_Cybersecurity_Resume.pdf"
+              className="inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-cyan-electric/40 bg-cyan-electric/5 px-4 py-2.5 font-mono text-xs uppercase tracking-wide text-cyan-electric transition-all hover:scale-[1.02] hover:border-magenta-hot/40 hover:shadow-glow-dual"
+            >
+              <Download className="h-4 w-4 shrink-0" />[ EXPORT_DOSSIER.PDF ↓ ]
+            </a>
           </div>
         </motion.div>
 

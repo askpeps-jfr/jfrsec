@@ -8,10 +8,12 @@ import {
   ExternalLink,
   GraduationCap,
   Hourglass,
+  Layers,
 } from "lucide-react";
 import type { Credential } from "@/lib/credentials";
 import { cn } from "@/lib/utils";
 import DiplomaModal from "@/components/credentials/DiplomaModal";
+import CredentialCarouselModal from "@/components/credentials/CredentialCarouselModal";
 
 const statusStyles: Record<Credential["status"], string> = {
   VERIFIED: "border-emerald-jade/40 bg-emerald-jade/10 text-emerald-jade",
@@ -31,6 +33,7 @@ export default function CredentialsGrid({
   credentials: Credential[];
 }) {
   const [diplomaTarget, setDiplomaTarget] = useState<Credential | null>(null);
+  const [carouselTarget, setCarouselTarget] = useState<Credential | null>(null);
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -38,6 +41,7 @@ export default function CredentialsGrid({
         const StatusIcon = statusIcon[credential.status];
         const hasVerifyLink = credential.verifyUrl !== "#";
         const hasPreview = Boolean(credential.previewImage);
+        const hasCourseCertificates = Boolean(credential.courseCertificates?.length);
 
         return (
           <motion.div
@@ -70,12 +74,21 @@ export default function CredentialsGrid({
               <p className="mt-1 text-xs text-slate-500">{credential.issuer}</p>
             </div>
 
-            {hasPreview ? (
+            {hasCourseCertificates ? (
+              <button
+                onClick={() => setCarouselTarget(credential)}
+                className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-cyan-electric transition-colors hover:text-magenta-hot"
+              >
+                <Layers className="h-3 w-3" />
+                Verify Credential
+                <ExternalLink className="h-3 w-3" />
+              </button>
+            ) : hasPreview ? (
               <button
                 onClick={() => setDiplomaTarget(credential)}
                 className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-cyan-electric transition-colors hover:text-magenta-hot"
               >
-                [ VIEW VERIFIED DIPLOMA
+                [ VIEW VERIFIED {credential.type === "degree" ? "DIPLOMA" : "CERTIFICATE"}
                 <ExternalLink className="h-3 w-3" />]
               </button>
             ) : hasVerifyLink ? (
@@ -104,6 +117,13 @@ export default function CredentialsGrid({
         onClose={() => setDiplomaTarget(null)}
         title={diplomaTarget?.title ?? ""}
         imageSrc={diplomaTarget?.previewImage ?? ""}
+      />
+
+      <CredentialCarouselModal
+        open={carouselTarget !== null}
+        onClose={() => setCarouselTarget(null)}
+        programTitle={carouselTarget?.title ?? ""}
+        certificates={carouselTarget?.courseCertificates ?? []}
       />
     </div>
   );

@@ -8,10 +8,12 @@ import {
   ExternalLink,
   GraduationCap,
   Hourglass,
+  Layers,
 } from "lucide-react";
 import type { Credential } from "@/lib/credentials";
 import { cn } from "@/lib/utils";
 import DiplomaModal from "@/components/credentials/DiplomaModal";
+import CredentialCarouselModal from "@/components/credentials/CredentialCarouselModal";
 
 const statusStyles: Record<Credential["status"], string> = {
   VERIFIED: "border-emerald-jade/40 bg-emerald-jade/10 text-emerald-jade",
@@ -33,9 +35,11 @@ export default function CredentialCard({
   index?: number;
 }) {
   const [diplomaOpen, setDiplomaOpen] = useState(false);
+  const [carouselOpen, setCarouselOpen] = useState(false);
   const StatusIcon = statusIcon[credential.status];
   const hasVerifyLink = credential.verifyUrl !== "#";
   const hasPreview = Boolean(credential.previewImage);
+  const hasCourseCertificates = Boolean(credential.courseCertificates?.length);
 
   return (
     <motion.div
@@ -86,12 +90,21 @@ export default function CredentialCard({
         </div>
 
         <div className="mt-4 border-t border-slate-border pt-3">
-          {hasPreview ? (
+          {hasCourseCertificates ? (
+            <button
+              onClick={() => setCarouselOpen(true)}
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-cyan-electric transition-colors hover:text-magenta-hot"
+            >
+              <Layers className="h-3 w-3" />
+              Verify Credential
+              <ExternalLink className="h-3 w-3" />
+            </button>
+          ) : hasPreview ? (
             <button
               onClick={() => setDiplomaOpen(true)}
               className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-cyan-electric transition-colors hover:text-magenta-hot"
             >
-              [ VIEW VERIFIED DIPLOMA
+              [ VIEW VERIFIED {credential.type === "degree" ? "DIPLOMA" : "CERTIFICATE"}
               <ExternalLink className="h-3 w-3" />]
             </button>
           ) : hasVerifyLink ? (
@@ -120,6 +133,15 @@ export default function CredentialCard({
           onClose={() => setDiplomaOpen(false)}
           title={credential.title}
           imageSrc={credential.previewImage!}
+        />
+      )}
+
+      {hasCourseCertificates && (
+        <CredentialCarouselModal
+          open={carouselOpen}
+          onClose={() => setCarouselOpen(false)}
+          programTitle={credential.title}
+          certificates={credential.courseCertificates!}
         />
       )}
     </motion.div>

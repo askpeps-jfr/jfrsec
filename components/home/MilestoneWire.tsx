@@ -22,8 +22,10 @@ import {
 import { cn } from "@/lib/utils";
 import SandboxLaunchButton from "@/components/shared/SandboxLaunchButton";
 import type { SandboxCommand } from "@/components/shared/SandboxModal";
+import { interviewQuestions } from "@/lib/interview-questions";
 
 type Milestone = {
+  id: string;
   year: string;
   title: string;
   description: string;
@@ -36,6 +38,7 @@ const LAB_REPO = "https://github.com/askpeps-jfr/jfr-sec-lab";
 
 const milestones: Milestone[] = [
   {
+    id: "foundations",
     year: "STAGE_01",
     title: "Foundations & SecOps Directive",
     description:
@@ -52,6 +55,7 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    id: "vulneramap",
     year: "STAGE_02",
     title: "VulneraMap",
     description:
@@ -67,6 +71,7 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    id: "nethardener",
     year: "STAGE_03",
     title: "NetHardener",
     description:
@@ -83,6 +88,7 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    id: "logquery",
     year: "STAGE_04",
     title: "LogQuery Forensic Sandbox",
     description:
@@ -103,6 +109,7 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    id: "threatsurface",
     year: "STAGE_05",
     title: "ThreatSurface Engine",
     description:
@@ -123,6 +130,7 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    id: "siem-triage",
     year: "STAGE_06",
     title: "SIEM Triage Chamber",
     description:
@@ -143,6 +151,7 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    id: "sentinel-py",
     year: "STAGE_07",
     title: "Sentinel-Py & AI Ops",
     description:
@@ -163,12 +172,12 @@ export default function MilestoneWire() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 75%", "end end"],
+    offset: ["start 40%", "end 60%"],
   });
   const wireProgress = useSpring(scrollYProgress, {
-    stiffness: 300,
-    damping: 60,
-    mass: 0.6,
+    stiffness: 60,
+    damping: 25,
+    mass: 0.5,
   });
 
   return (
@@ -319,7 +328,14 @@ function MilestoneNode({
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <SandboxLaunchButton
-            context={{ title: milestone.title, commands: milestone.sandboxCommands }}
+            context={{
+              title: milestone.title,
+              commands: milestone.sandboxCommands,
+              interviewQuestions: interviewQuestions[milestone.id]?.map(({ q, a }) => ({
+                question: q,
+                answer: a,
+              })),
+            }}
           />
           <a
             href={milestone.githubUrl}
