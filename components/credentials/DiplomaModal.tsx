@@ -17,16 +17,16 @@ export default function DiplomaModal({
 }) {
   return (
     <Modal open={open} onClose={onClose} labelledBy="diploma-modal-title" className="max-w-3xl">
-      <div className="flex items-center justify-between gap-4 border-b border-slate-border px-5 py-4">
-        <div className="flex min-w-0 items-center gap-2.5">
-          <GraduationCap className="h-4 w-4 shrink-0 text-cyan-electric" />
+      <div className="flex items-start justify-between gap-3 border-b border-slate-border px-5 py-4">
+        <div className="flex min-w-0 items-start gap-2.5">
+          <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-cyan-electric" />
           <div className="min-w-0">
             <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-electric">
               Verified Document
             </p>
             <h2
               id="diploma-modal-title"
-              className="truncate font-mono text-sm font-semibold text-slate-100"
+              className="break-words font-mono text-sm font-semibold text-slate-100"
             >
               {title}
             </h2>

@@ -130,7 +130,7 @@ export default function CaseStudyDetailPage({
 
       <section className="panel border-cyan-electric/20 px-6 py-5">
         <SectionTitle icon={FileText} label="Executive Summary" />
-        <p className="mt-3 text-sm leading-relaxed text-slate-300">
+        <p className="mt-3 break-words text-sm leading-relaxed text-slate-300">
           {study.executiveSummary}
         </p>
       </section>
@@ -139,7 +139,7 @@ export default function CaseStudyDetailPage({
         <SectionTitle icon={Crosshair} label="Scope" />
         <ul className="mt-3 space-y-2">
           {study.scope.map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-sm text-slate-400">
+            <li key={item} className="flex items-start gap-2.5 break-words text-sm text-slate-400">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-electric" />
               {item}
             </li>
@@ -149,7 +149,7 @@ export default function CaseStudyDetailPage({
 
       <section className="panel px-6 py-5">
         <SectionTitle icon={ClipboardList} label="Overview" />
-        <p className="mt-3 text-sm leading-relaxed text-slate-400">
+        <p className="mt-3 break-words text-sm leading-relaxed text-slate-400">
           {study.overview}
         </p>
       </section>
@@ -158,7 +158,7 @@ export default function CaseStudyDetailPage({
         <SectionTitle icon={Target} label="Objectives" />
         <ul className="mt-3 space-y-2">
           {study.objectives.map((obj) => (
-            <li key={obj} className="flex items-start gap-2.5 text-sm text-slate-400">
+            <li key={obj} className="flex items-start gap-2.5 break-words text-sm text-slate-400">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-electric" />
               {obj}
             </li>
@@ -170,7 +170,7 @@ export default function CaseStudyDetailPage({
         <SectionTitle icon={ListChecks} label="Methodology" />
         <ol className="mt-3 space-y-2">
           {study.methodology.map((step, i) => (
-            <li key={step} className="flex items-start gap-3 text-sm text-slate-400">
+            <li key={step} className="flex items-start gap-3 break-words text-sm text-slate-400">
               <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-cyan-electric/30 font-mono text-[10px] text-cyan-electric">
                 {i + 1}
               </span>
@@ -217,11 +217,11 @@ export default function CaseStudyDetailPage({
               key={finding.title}
               className="flex flex-col gap-2 rounded-md border border-slate-border bg-white/[0.015] p-4 sm:flex-row sm:items-start sm:justify-between"
             >
-              <div>
-                <h3 className="font-mono text-sm font-semibold text-slate-100">
+              <div className="min-w-0">
+                <h3 className="break-words font-mono text-sm font-semibold text-slate-100">
                   {finding.title}
                 </h3>
-                <p className="mt-1 text-sm text-slate-400">{finding.detail}</p>
+                <p className="mt-1 break-words text-sm text-slate-400">{finding.detail}</p>
               </div>
               <span className={cn("badge-pill shrink-0", severityStyles[finding.severity])}>
                 {severityLabel[finding.severity]}
@@ -246,9 +246,9 @@ export default function CaseStudyDetailPage({
               <tbody>
                 {study.iocs.map((ioc) => (
                   <tr key={ioc.value} className="border-b border-slate-border/60 align-top">
-                    <td className="py-2.5 pr-4 font-mono text-xs text-magenta-hot">{ioc.type}</td>
-                    <td className="py-2.5 pr-4 font-mono text-xs text-cyan-electric">{ioc.value}</td>
-                    <td className="py-2.5 text-slate-400">{ioc.description}</td>
+                    <td className="break-words py-2.5 pr-4 font-mono text-xs text-magenta-hot">{ioc.type}</td>
+                    <td className="max-w-[220px] break-words py-2.5 pr-4 font-mono text-xs text-cyan-electric">{ioc.value}</td>
+                    <td className="break-words py-2.5 text-slate-400">{ioc.description}</td>
                   </tr>
                 ))}
               </tbody>
@@ -275,14 +275,14 @@ export default function CaseStudyDetailPage({
               <tbody>
                 {study.riskMatrix.map((row) => (
                   <tr key={row.asset} className="border-b border-slate-border/60 align-top">
-                    <td className="py-2.5 pr-4 font-mono text-xs text-slate-200">{row.asset}</td>
-                    <td className="py-2.5 pr-4 text-slate-400">{row.threat}</td>
-                    <td className="py-2.5 pr-4 text-slate-400">{row.likelihood}</td>
-                    <td className="py-2.5 pr-4 text-slate-400">{row.impact}</td>
+                    <td className="break-words py-2.5 pr-4 font-mono text-xs text-slate-200">{row.asset}</td>
+                    <td className="break-words py-2.5 pr-4 text-slate-400">{row.threat}</td>
+                    <td className="break-words py-2.5 pr-4 text-slate-400">{row.likelihood}</td>
+                    <td className="break-words py-2.5 pr-4 text-slate-400">{row.impact}</td>
                     <td className="py-2.5 pr-4">
                       <span className={cn("badge-pill", riskStyles[row.risk])}>{row.risk}</span>
                     </td>
-                    <td className="py-2.5 text-slate-400">{row.treatment}</td>
+                    <td className="break-words py-2.5 text-slate-400">{row.treatment}</td>
                   </tr>
                 ))}
               </tbody>
@@ -295,7 +295,7 @@ export default function CaseStudyDetailPage({
         <SectionTitle icon={Wrench} label="Remediation" />
         <ul className="mt-3 space-y-2">
           {study.remediation.map((step) => (
-            <li key={step} className="flex items-start gap-2.5 text-sm text-slate-400">
+            <li key={step} className="flex items-start gap-2.5 break-words text-sm text-slate-400">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-jade" />
               {step}
             </li>
