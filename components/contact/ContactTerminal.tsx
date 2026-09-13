@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Loader2, Send, ShieldCheck } from "lucide-react";
+import { AlertTriangle, Loader2, Send, ShieldCheck } from "lucide-react";
 
-type Status = "idle" | "submitting" | "sent";
+type Status = "idle" | "submitting" | "sent" | "error";
 
 export default function ContactTerminal() {
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   function handleChange(
@@ -18,9 +19,29 @@ export default function ContactTerminal() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setStatus("submitting");
-    // TODO: wire to an actual mail/API route (e.g. /api/contact) before production launch.
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setStatus("sent");
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok || !data?.success) {
+        throw new Error(
+          data?.error || "Transmission failed. Try again or use a direct channel."
+        );
+      }
+
+      setStatus("sent");
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error ? err.message : "Transmission failed. Try again or use a direct channel."
+      );
+      setStatus("error");
+    }
   }
 
   return (
@@ -45,6 +66,13 @@ export default function ContactTerminal() {
           </div>
         ) : (
           <>
+            {status === "error" && errorMessage && (
+              <div className="flex items-start gap-2.5 rounded-md border border-magenta-hot/40 bg-magenta-hot/10 px-3.5 py-2.5 text-xs text-magenta-hot">
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+                <p>{errorMessage}</p>
+              </div>
+            )}
+
             <Field label="operator_name">
               <input
                 required
