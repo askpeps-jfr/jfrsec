@@ -19,7 +19,7 @@ export default function SecOpsHero() {
   return (
     <section
       ref={heroRef}
-      className="relative mx-auto w-full max-w-full overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#060b11] shadow-[0_0_30px_rgba(6,182,212,0.1)] md:min-h-[520px]"
+      className="relative mx-auto w-full max-w-full overflow-hidden rounded-2xl border border-cyan-500/25 bg-[#060b11] shadow-[0_0_18px_rgba(6,182,212,0.14)] md:min-h-[520px] md:border-cyan-500/30 md:shadow-[0_0_30px_rgba(6,182,212,0.1)]"
     >
       <motion.div className="absolute inset-0 z-0" style={{ y, scale }}>
         <Image
@@ -45,7 +45,7 @@ export default function SecOpsHero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-start text-left md:col-span-7"
+          className="order-2 -mt-6 flex flex-col items-start text-left md:order-1 md:col-span-7 md:mt-0"
         >
           <PageHeaderBadge
             icon={Terminal}
@@ -76,7 +76,7 @@ export default function SecOpsHero() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-slate-border bg-white/[0.02] px-4 py-2.5 font-mono text-xs text-slate-300 transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual"
+              className="inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-magenta-hot/20 bg-white/[0.02] px-4 py-2.5 font-mono text-xs text-slate-300 shadow-[0_0_15px_rgba(255,0,127,0.15)] transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual"
             >
               <Mail className="h-4 w-4 shrink-0" />
               Establish Contact
@@ -93,10 +93,24 @@ export default function SecOpsHero() {
           </div>
         </motion.div>
 
-        {/* Column 2: empty spacer at md+ so the backdrop artwork shows through
-            on the right; not rendered as a separate card on mobile anymore —
-            the watermarked background above carries the emblem there instead. */}
-        <div className="hidden md:col-span-5 md:block" aria-hidden />
+        {/* Column 2 / Command Center: a dedicated 40% stage on mobile
+            (order-1, stacked above the content card) showing a crisp,
+            cropped view of the hero backdrop itself — full brightness, no
+            watermark dimming — collapsing back to an empty md:col-span-5
+            spacer on desktop so the backdrop artwork shows through on the
+            right instead. */}
+        <div className="relative order-1 flex h-[280px] w-full items-center justify-center overflow-hidden rounded-xl border border-cyan-500/20 shadow-[0_0_12px_rgba(6,182,212,0.10)] md:order-2 md:col-span-5 md:h-auto md:overflow-visible md:rounded-none md:border-none md:shadow-none">
+          <Image
+            src="/hero-bg.avif"
+            alt="Command center display — NOC server room with glowing shield emblem"
+            fill
+            className="object-cover object-right md:hidden"
+          />
+
+          {/* Bottom gradient mask — melts the command center stage cleanly
+              into the content card below it, mobile only. */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#060a0f] via-[#060a0f]/80 to-transparent md:hidden" />
+        </div>
       </div>
     </section>
   );
