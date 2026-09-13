@@ -32,7 +32,7 @@ export async function POST(request: Request) {
   try {
     const { error } = await resend.emails.send({
       from: "JFRSec Terminal <onboarding@resend.dev>",
-      to: [process.env.CONTACT_TO_EMAIL || "jfromero@jfrsec.com"],
+      to: ["askpeps@gmail.com"],
       replyTo: email,
       subject: `JFRSec Transmission from ${name || email}`,
       text: [
