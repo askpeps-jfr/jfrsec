@@ -35,9 +35,9 @@ export default function CliInspectDrawer({
         <button
           type="button"
           onClick={onClose}
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-slate-border px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-slate-400 transition-colors hover:border-magenta-hot/40 hover:text-magenta-hot"
+          className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-md border border-slate-border px-2.5 py-1.5 font-mono text-xs uppercase tracking-widest text-slate-400 transition-colors hover:border-magenta-hot/40 hover:text-magenta-hot"
         >
-          <X className="h-3.5 w-3.5" />[ CLOSE ]
+          <X className="h-3 w-3 shrink-0" />[ ESC ]
         </button>
       </div>
 

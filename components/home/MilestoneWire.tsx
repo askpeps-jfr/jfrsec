@@ -175,7 +175,7 @@ export default function MilestoneWire() {
     offset: ["start 40%", "end 60%"],
   });
   const wireProgress = useSpring(scrollYProgress, {
-    stiffness: 60,
+    stiffness: 90,
     damping: 25,
     mass: 0.5,
   });
@@ -192,7 +192,7 @@ export default function MilestoneWire() {
         </span>
       </div>
 
-      <div className="relative pl-14 sm:pl-16">
+      <div className="relative pl-12 sm:pl-16">
         {/* Layer 1: dim resting-state trace */}
         <div
           className="absolute left-5 top-1 h-[calc(100%-1rem)] w-[2px] rounded-full bg-cyan-950/40 sm:left-6"
@@ -274,7 +274,7 @@ function MilestoneNode({
       <motion.div
         style={isActiveNode ? undefined : { boxShadow: nodeGlow }}
         className={cn(
-          "absolute -left-14 top-0 flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 sm:-left-16",
+          "absolute -left-12 top-0 flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 sm:-left-16 sm:h-12 sm:w-12",
           isActiveNode
             ? "border-cyan-400 bg-cyan-950/80 text-cyan-400 shadow-[0_0_12px_rgba(0,229,255,0.6)] ring-2 ring-cyan-400"
             : isFinal
@@ -284,7 +284,7 @@ function MilestoneNode({
       >
         <Icon
           className={cn(
-            "h-7 w-7 drop-shadow-glow-cyan",
+            "h-6 w-6 drop-shadow-glow-cyan sm:h-7 sm:w-7",
             isFinal && !isActiveNode && "drop-shadow-glow-magenta"
           )}
         />

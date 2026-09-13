@@ -108,8 +108,9 @@ export default function CaseStudyDetailPage({
           ))}
         </div>
 
-        <div className="mt-6 flex max-w-full flex-wrap gap-3">
+        <div className="mt-6 flex w-full max-w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <SandboxLaunchButton
+            className="w-full justify-center sm:w-auto sm:justify-start"
             context={{
               title: study.title,
               commands: study.commandLog,
@@ -120,7 +121,7 @@ export default function CaseStudyDetailPage({
             href={study.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md border border-slate-border bg-white/[0.02] px-4 py-2 font-mono text-xs uppercase tracking-widest text-slate-300 transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual"
+            className="inline-flex w-full shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-slate-border bg-white/[0.02] px-4 py-2 font-mono text-xs uppercase tracking-widest text-slate-300 transition-all hover:border-magenta-hot/40 hover:text-magenta-hot hover:shadow-glow-dual sm:w-auto sm:justify-start"
           >
             [ VIEW REPO
             <ExternalLink className="h-3.5 w-3.5 shrink-0" />]

@@ -75,7 +75,7 @@ export default function AboutPage() {
                   <Icon className="h-3 w-3 shrink-0" />
                 </div>
                 <div className="panel px-5 py-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap items-center justify-between gap-1">
                     <h3 className="font-mono text-sm font-semibold text-slate-100">
                       {item.title}
                     </h3>

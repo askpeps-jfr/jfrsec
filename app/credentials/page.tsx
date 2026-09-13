@@ -51,9 +51,9 @@ export default function CredentialsPage() {
           target="_blank"
           rel="noopener noreferrer"
           download="Jose_Romero_Cybersecurity_Resume.pdf"
-          className="inline-flex shrink-0 items-center gap-2 rounded-md border border-cyan-electric/40 bg-cyan-electric/10 px-5 py-2.5 font-mono text-sm uppercase tracking-wide text-cyan-electric shadow-glow-cyan transition-all hover:scale-[1.02] hover:border-magenta-hot/40 hover:shadow-glow-dual"
+          className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md border border-cyan-electric/40 bg-cyan-electric/10 px-5 py-2.5 font-mono text-sm uppercase tracking-wide text-cyan-electric shadow-glow-cyan transition-all hover:scale-[1.02] hover:border-magenta-hot/40 hover:shadow-glow-dual"
         >
-          <Download className="h-4 w-4" />[ DOWNLOAD COMPLETE TECHNICAL DOSSIER ]
+          <Download className="h-4 w-4 shrink-0" />[ EXPORT_DOSSIER.PDF ↓ ]
         </a>
       </section>
     </div>

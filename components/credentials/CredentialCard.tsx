@@ -50,7 +50,7 @@ export default function CredentialCard({
       className="panel flex h-full flex-col justify-between px-5 py-5"
     >
       <div>
-        <div className="mb-3 flex items-start justify-between gap-3">
+        <div className="mb-3 flex flex-wrap items-start justify-between gap-1">
           <span className={cn("badge-pill", statusStyles[credential.status])}>
             <StatusIcon className="h-3 w-3" />
             {credential.status}

@@ -53,12 +53,12 @@ export default function CredentialsGrid({
             className="panel flex flex-col justify-between px-5 py-4"
           >
             <div>
-              <div className="mb-2 flex items-start justify-between gap-3">
+              <div className="mb-2 flex flex-wrap items-start justify-between gap-1">
                 <span className={cn("badge-pill", statusStyles[credential.status])}>
                   <StatusIcon className="h-3 w-3" />
                   {credential.status}
                 </span>
-                <span className="font-mono text-[11px] text-slate-600">
+                <span className="shrink-0 font-mono text-[11px] text-slate-600">
                   {credential.issueDate}
                 </span>
               </div>

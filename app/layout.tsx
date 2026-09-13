@@ -33,17 +33,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="relative min-h-screen bg-obsidian-void font-sans">
+      <body className="relative min-h-screen w-full max-w-full overflow-x-hidden bg-obsidian-void font-sans">
         <div className="scanline-overlay" />
         <div className="scanline-sweep" />
         <div className="pointer-events-none fixed inset-0 z-0 bg-grid-slate bg-grid opacity-[0.15]" />
         <div className="pointer-events-none fixed inset-0 z-0 bg-radial-fade" />
 
-        <div className="relative z-10 flex min-h-screen">
+        <div className="relative z-10 flex min-h-screen w-full max-w-full overflow-x-hidden">
           <Sidebar />
-          <div className="flex min-h-screen flex-1 flex-col lg:pl-64">
+          <div className="flex min-h-screen w-full max-w-full flex-1 flex-col overflow-x-hidden lg:pl-64">
             <TopHeader />
-            <main className="flex-1 px-4 pb-16 pt-6 sm:px-6 lg:px-10">
+            <main className="w-full max-w-full flex-1 overflow-x-hidden px-4 pb-16 pt-6 sm:px-6 lg:px-10">
               {children}
             </main>
             <footer className="border-t border-slate-border px-4 py-6 font-mono text-xs text-slate-500 sm:px-6 lg:px-10">

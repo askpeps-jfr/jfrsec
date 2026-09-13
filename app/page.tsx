@@ -12,7 +12,7 @@ const stats = [
 
 export default function HomePage() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-16">
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-16 overflow-x-hidden">
       <SecOpsHero />
 
       <section>

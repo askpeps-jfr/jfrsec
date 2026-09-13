@@ -19,7 +19,7 @@ export default function SecOpsHero() {
   return (
     <section
       ref={heroRef}
-      className="relative w-full overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#060b11] shadow-[0_0_30px_rgba(6,182,212,0.1)] md:min-h-[520px]"
+      className="relative mx-auto w-full max-w-full overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#060b11] shadow-[0_0_30px_rgba(6,182,212,0.1)] md:min-h-[520px]"
     >
       <motion.div className="absolute inset-0 z-0" style={{ y, scale }}>
         <Image
