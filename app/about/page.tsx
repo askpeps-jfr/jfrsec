@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, Building2, GraduationCap, Server, User, Wrench } from "lucide-react";
+import { ArrowUpRight, Boxes, Network, Server, ShieldAlert, User } from "lucide-react";
 import CredentialsGrid from "@/components/credentials/CredentialsGrid";
 import { credentials } from "@/lib/credentials";
 import PageHeaderBadge from "@/components/shared/PageHeaderBadge";
@@ -13,31 +13,31 @@ export const metadata: Metadata = {
 const background = [
   {
     icon: Server,
-    title: "IT Systems & Support",
-    period: "2019 — 2023",
+    title: "Enterprise Systems & Endpoint Engineering",
+    period: "2003 — 2020",
     detail:
-      "Administered end-user systems, imaging pipelines, and internal ticketing for a 200+ seat organization, building the operational fluency that now informs threat modeling from a defender's perspective.",
+      "Graduated B.S. in IT (2003). Administered multi-site enterprise infrastructure for up to 3,200+ users, driving mass Dell KACE imaging pipelines (1,500+ endpoints), Active Directory GPO enforcement, and hands-on malware remediation.",
   },
   {
-    icon: Building2,
-    title: "Network & Infrastructure",
-    period: "2022 — 2024",
+    icon: Network,
+    title: "Network, IAM & Rapid Infrastructure Deployment",
+    period: "2020 — 2023",
     detail:
-      "Owned routing, switching, and firewall policy across multi-site VPN infrastructure, developing hands-on familiarity with the attack surface most audits are written about.",
+      "Orchestrated mission-critical corporate continuity (Okta SSO, SonicWall VPNs). Administered 1,000+ user environments enforcing Duo 2FA, ThreatLocker, and Nutanix migrations.",
   },
   {
-    icon: GraduationCap,
-    title: "Cybersecurity Specialization",
-    period: "2024 — Present",
+    icon: Boxes,
+    title: "Security Range & Lab Engineering",
+    period: "2023 — PRESENT",
     detail:
-      "Transitioned focus to offensive and defensive security — SOC triage, penetration testing methodology, and formal risk assessment frameworks.",
+      "Architected isolated bare-metal KVM/QEMU virtualization ranges on VLAN 53. Deployed Active Directory GPO baselines and SMB/Kerberos hardening.",
   },
   {
-    icon: Wrench,
-    title: "Independent Lab Practice",
-    period: "Ongoing",
+    icon: ShieldAlert,
+    title: "Offensive & Defensive Security Operations",
+    period: "ONGOING",
     detail:
-      "Maintains a home lab for continuous practice: Nmap-driven recon, Wireshark packet triage, and Burp Suite-based web application testing.",
+      "Conducting NIST CSF compliance audits, SIEM/packet triage (Wireshark), log analysis, and publishing interactive cyber playbooks.",
   },
 ];
 

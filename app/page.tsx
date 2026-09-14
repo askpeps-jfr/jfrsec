@@ -5,7 +5,7 @@ import { ArrowUpRight, Gauge, ShieldCheck, Target } from "lucide-react";
 import Link from "next/link";
 
 const stats = [
-  { label: "Labs Documented", value: caseStudies.length.toString().padStart(2, "0"), icon: Target },
+  { label: "Labs Documented", value: "07", icon: Target },
   { label: "Critical Findings", value: caseStudies.filter((c) => c.severity === "critical").length.toString().padStart(2, "0"), icon: ShieldCheck },
   { label: "Avg. CVSS Scored", value: (caseStudies.reduce((a, c) => a + c.cvss, 0) / caseStudies.length).toFixed(1), icon: Gauge },
 ];
