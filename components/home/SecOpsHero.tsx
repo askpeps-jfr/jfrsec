@@ -23,11 +23,18 @@ export default function SecOpsHero() {
     >
       <motion.div className="absolute inset-0 z-0" style={{ y, scale }}>
         <Image
+          src="/hero-bg-mobile.avif"
+          alt="NOC server room backdrop"
+          fill
+          unoptimized
+          className="object-cover object-center opacity-20 filter-none md:hidden"
+        />
+        <Image
           src="/hero-bg.avif"
           alt="NOC server room backdrop"
           fill
           unoptimized
-          className="object-cover object-center opacity-20 filter-none md:opacity-100"
+          className="hidden object-cover object-center md:block"
         />
       </motion.div>
 
