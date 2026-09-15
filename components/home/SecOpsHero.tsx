@@ -27,8 +27,8 @@ export default function SecOpsHero() {
           alt="NOC server room backdrop"
           fill
           priority
-          sizes="100vw"
-          quality={85}
+          sizes="(max-width: 768px) 100vw, 1920px"
+          quality={75}
           className="object-cover object-center opacity-20 filter-none md:opacity-100"
         />
       </motion.div>
