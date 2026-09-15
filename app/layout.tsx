@@ -43,7 +43,7 @@ export default function RootLayout({
           <Sidebar />
           <div className="flex min-h-screen w-full max-w-full flex-1 flex-col overflow-x-hidden lg:pl-64">
             <TopHeader />
-            <main className="w-full max-w-full flex-1 overflow-x-hidden px-4 pb-16 pt-6 sm:px-6 lg:px-10">
+            <main className="w-full max-w-full flex-1 overflow-x-hidden px-4 pb-16 pt-3 sm:px-6 sm:pt-6 lg:px-10">
               {children}
             </main>
             <footer className="border-t border-slate-border px-4 py-6 font-mono text-xs text-slate-500 sm:px-6 lg:px-10">

@@ -27,6 +27,8 @@ export default function SecOpsHero() {
           alt="NOC server room backdrop"
           fill
           priority
+          sizes="100vw"
+          quality={85}
           className="object-cover object-center opacity-20 filter-none md:opacity-100"
         />
       </motion.div>
@@ -104,7 +106,10 @@ export default function SecOpsHero() {
             src="/hero-bg.avif"
             alt="Command center display — NOC server room with glowing shield emblem"
             fill
-            className="object-cover object-right md:hidden"
+            priority
+            sizes="(max-width: 768px) 100vw, 650px"
+            quality={85}
+            className="object-cover object-[center_top] md:hidden"
           />
 
           {/* Bottom gradient mask — melts the command center stage cleanly

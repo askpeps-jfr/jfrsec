@@ -34,7 +34,7 @@ export default function TopHeader() {
   const stamp = now ? formatUtc(now) : null;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-border bg-obsidian-void/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-slate-border bg-[#01080c]/90 md:bg-obsidian-void/80 md:backdrop-blur-md">
       <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-10">
         <div className="flex min-w-0 items-center gap-2 font-mono text-xs sm:gap-2.5">
           <Link
