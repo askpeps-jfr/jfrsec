@@ -7,6 +7,30 @@ type ContactPayload = {
   message?: string;
 };
 
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_MESSAGE_LENGTH = 5000;
+
+const RECON_SIGNATURE_PATTERNS: RegExp[] = [
+  /\bwhoami\b/i,
+  /cat\s+\/etc/i,
+  /\bsudo\b/i,
+  /'\s*or\s*'?1'?\s*=\s*'?1/i,
+  /<script/i,
+  /eval\s*\(/i,
+  /\.\.\//,
+  /\bid\b/i,
+  /\buname\b/i,
+];
+
+const TELEMETRY_ALERT =
+  "[!] TELEMETRY ALERT: Payload signature detected and logged. Nice try, analyst.";
+
+function containsReconSignature(...fields: string[]) {
+  const combined = fields.join(" ");
+  return RECON_SIGNATURE_PATTERNS.some((pattern) => pattern.test(combined));
+}
+
 export async function POST(request: Request) {
   let body: ContactPayload;
   try {
@@ -23,6 +47,25 @@ export async function POST(request: Request) {
   if (!email || !message) {
     return NextResponse.json(
       { success: false, error: "Email and message are required." },
+      { status: 400 }
+    );
+  }
+
+  if (
+    (name && name.length > MAX_NAME_LENGTH) ||
+    email.length > MAX_EMAIL_LENGTH ||
+    message.length > MAX_MESSAGE_LENGTH
+  ) {
+    return NextResponse.json(
+      { success: false, error: "Input exceeds maximum allowed length." },
+      { status: 400 }
+    );
+  }
+
+  if (containsReconSignature(name || "", email, message)) {
+    console.warn("[contact] recon signature blocked:", { name, email, message });
+    return NextResponse.json(
+      { success: false, error: TELEMETRY_ALERT },
       { status: 400 }
     );
   }

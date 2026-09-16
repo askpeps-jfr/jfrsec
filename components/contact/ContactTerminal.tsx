@@ -80,6 +80,7 @@ export default function ContactTerminal() {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="jane_doe"
+                maxLength={100}
                 className="w-full bg-transparent text-slate-100 outline-none placeholder:text-slate-700"
               />
             </Field>
@@ -91,6 +92,7 @@ export default function ContactTerminal() {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="jane@domain.com"
+                maxLength={254}
                 className="w-full bg-transparent text-slate-100 outline-none placeholder:text-slate-700"
               />
             </Field>
@@ -102,6 +104,7 @@ export default function ContactTerminal() {
                 onChange={handleChange}
                 rows={5}
                 placeholder="Describe the engagement, timeline, or question..."
+                maxLength={5000}
                 className="w-full resize-none bg-transparent text-slate-100 outline-none placeholder:text-slate-700"
               />
             </Field>
