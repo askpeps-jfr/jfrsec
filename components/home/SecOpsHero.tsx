@@ -106,15 +106,15 @@ export default function SecOpsHero() {
             watermark dimming — collapsing back to an empty md:col-span-5
             spacer on desktop so the backdrop artwork shows through on the
             right instead. */}
-        <div className="relative order-1 flex h-[280px] w-full items-center justify-center overflow-hidden rounded-xl border border-cyan-500/20 shadow-[0_0_12px_rgba(6,182,212,0.10)] md:order-2 md:col-span-5 md:h-auto md:overflow-visible md:rounded-none md:border-none md:shadow-none">
+        <div className="relative order-1 mx-auto aspect-square w-[85%] max-w-sm overflow-hidden rounded-xl border border-cyan-500/20 shadow-[0_0_12px_rgba(6,182,212,0.10)] md:order-2 md:col-span-5 md:aspect-auto md:h-auto md:w-full md:max-w-none md:overflow-visible md:rounded-none md:border-none md:shadow-none">
           <Image
-            src="/hero-bg.avif"
+            src="/Mobile_Hero_v3.avif"
             alt="Command center display — NOC server room with glowing shield emblem"
             fill
             priority
-            sizes="(max-width: 768px) 100vw, 650px"
+            sizes="(max-width: 768px) 90vw, 500px"
             quality={85}
-            className="object-cover object-[center_top] md:hidden"
+            className="object-cover object-center md:hidden"
           />
 
           {/* Bottom gradient mask — melts the command center stage cleanly
